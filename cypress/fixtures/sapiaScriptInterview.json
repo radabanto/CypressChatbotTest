@@ -1,0 +1,18 @@
+{
+    "introduction": ["Hey there 👋.", 
+    "Welcome to the First Interview experience.", 
+    "By answering just 5 free text questions, we can identify your candidate's personality traits and behaviours. Yes, really!", 
+    "We'll then recommend candidates who match your success profile.", "Everything you see here can be customised - text, colours, branding. Time to get creative!", "We can even add videos to showcase you as an employer or give a taste of the job on offer."],
+    "interviewChallenge1": ["So that you get the full candidate experience, try and answer each of the 5 questions with between 50 and 150 words.", 
+    "That way you (like every single one of your candidates) will receive personalised feedback - how good is that?", 
+    "If your candidates experience any issues or require support, they can access our candidate hub or chat to our support team", 
+    "The questions are bespoke for each job family - we'll work with you to find out your \"employee DNA\" and then design the questions to match", 
+    "Ready to give it a go?", 
+    "Let’s get started 👍", 
+    "By the way, we can provide an introduction to each question that can relate to a particular element of the job or your core values but for this demo, let's just go with questions..."],
+    "interviewChallenge2": ["Thanks! We also offer the capability for multi-choice questions which can support both behavioural and personality identification, or capture additional information such as right to work, availability, or demographic data.",
+    "For example, these next three questions don't form part of your assessment but will be used to help us understand the diversity of your workforce. Please select the multiple-choice option that most relates to you."],
+    "interviewConclusionPlusRating": ["Your interview has been submitted 🎉",
+    "We'd love to get feedback on your interview experience today. This is confidential and won't affect your application",
+    "Rate your interview experience:"]
+}
