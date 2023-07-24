@@ -1,13 +1,12 @@
 /**
- * Chat Console POM
+ * Chat Console Page Object Model.
  * POM class for supporting tests within the standard
  * Sapia Chat Window
+ * @constructor ChatConsole
+ * @module ChatConsole
  */
 class ChatConsole {
-    /**
-     * @constructor constructor
-     */
-    constructor() {
+    ChatConsole() {
         /* no implementation yet; placeholder */
     }
 
@@ -216,6 +215,7 @@ class ChatConsole {
      * Perform rating interaction after interview and test it
      * @param {JSON} userData - json object containing input user data
      * @param {JSON} botScript - json object containing a bot response script profile
+     * @method askApplicantOnRating
      */
     askApplicantOnRating(userData, botScript) {
         this.shouldHaveMultipleResponse(botScript.interviewConclusionPlusRating);
