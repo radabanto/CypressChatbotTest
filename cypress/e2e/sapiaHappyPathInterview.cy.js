@@ -2,11 +2,15 @@
 
 import ChatConsole from '../pages/ChatConsole';
 
+// Do testing via categorized user data
+// Test data generation may be done according to category; generate test user data
+// is parametrized to demonstrate such use case.
 describe("Sapia Interview Chat Happy Path", () => {
     beforeEach(function() {
         // executes once prior all tests in it block
-        cy.generateTestUserData();
-        cy.fixture('userData').as('randomApplicant').then(userData => {
+        let userScenarioName = "happy";
+        cy.generateTestUserData(userScenarioName);
+        cy.fixture(`user${userScenarioName}Data`).as('randomApplicant').then(userData => {
             cy.log(JSON.stringify(userData, null, "\t"));
         });
         cy.fixture('sapiaScriptInterview').as('testScript');

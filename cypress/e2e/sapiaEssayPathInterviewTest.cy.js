@@ -5,8 +5,9 @@ import ChatConsole from '../pages/ChatConsole';
 describe("Sapia Interview Essay Length Test", () => {
     beforeEach(function() {
         // executes once prior all tests in it block
-        cy.generateTestUserData();
-        cy.fixture('userData').as('randomApplicant').then(userData => {
+        let userScenarioName = "unhappyWordCount";
+        cy.generateTestUserData(userScenarioName);
+        cy.fixture(`user${userScenarioName}Data`).as('randomApplicant').then(userData => {
             cy.log(JSON.stringify(userData, null, "\t"));
         });
         cy.fixture('sapiaScriptInterview').as('testScript');

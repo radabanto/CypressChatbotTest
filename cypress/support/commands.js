@@ -25,9 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import { faker } from '@faker-js/faker';  
 
-Cypress.Commands.add('generateTestUserData', () => {
+Cypress.Commands.add('generateTestUserData', (userScenarioName) => {
     faker.setLocale('en_AU');
-    cy.writeFile('cypress/fixtures/userData.json', 
+    cy.writeFile(`cypress/fixtures/user${userScenarioName}Data.json`, 
         {
           'name':`${faker.name.findName()}`,
           'email':`${"example+" + faker.random.number() + "@gmail.com"}`,
