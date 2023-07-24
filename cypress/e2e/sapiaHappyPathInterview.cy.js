@@ -10,7 +10,7 @@ describe("Sapia Interview Chat Happy Path", () => {
         // executes once prior all tests in it block
         let userScenarioName = "happy";
         cy.generateTestUserData(userScenarioName);
-        cy.fixture(`user${userScenarioName}Data`).as('randomApplicant').then(userData => {
+        cy.fixture(`user${userScenarioName}.Data`).as('randomApplicant').then(userData => {
             cy.log(JSON.stringify(userData, null, "\t"));
         });
         cy.fixture('sapiaScriptInterview').as('testScript');

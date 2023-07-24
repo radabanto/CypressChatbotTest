@@ -7,7 +7,7 @@ describe("Sapia Interview Essay Length Test", () => {
         // executes once prior all tests in it block
         let userScenarioName = "unhappyWordCount";
         cy.generateTestUserData(userScenarioName);
-        cy.fixture(`user${userScenarioName}Data`).as('randomApplicant').then(userData => {
+        cy.fixture(`user${userScenarioName}.Data`).as('randomApplicant').then(userData => {
             cy.log(JSON.stringify(userData, null, "\t"));
         });
         cy.fixture('sapiaScriptInterview').as('testScript');
