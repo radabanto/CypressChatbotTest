@@ -2,6 +2,10 @@
 
 import ChatConsole from '../pages/ChatConsole';
 
+// Do testing via categorized user data
+// Test data generation may be done according to category; generate test user data
+// is parametrized to demonstrate such use case.
+
 /**
  * Sapia Interview Not happy :) Path Test
  */
