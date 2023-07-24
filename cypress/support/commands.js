@@ -25,6 +25,17 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import { faker } from '@faker-js/faker';  
 
+/**
+ * Custom command for generating test user data
+ * currently parametrized according to user category
+ * + A test user category would allow for segregation of test data per test type
+ * + Outputs a json fixture file that can be referred to by spec tests
+ * + Modifies output file (if existing) after each call
+ * + Data is generated randomly based on faker v6
+ * TODO: Upgrade to a later version
+ * @param {string} userScenarioName - name your test data category
+ * @method generateTestUserData
+ */
 Cypress.Commands.add('generateTestUserData', (userScenarioName) => {
     faker.setLocale('en_AU');
     cy.writeFile(`cypress/fixtures/user${userScenarioName}.Data.json`, 

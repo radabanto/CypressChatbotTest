@@ -5,6 +5,10 @@ import ChatConsole from '../pages/ChatConsole';
 // Do testing via categorized user data
 // Test data generation may be done according to category; generate test user data
 // is parametrized to demonstrate such use case.
+
+/**
+ * Sapia Interview Happy Path Test
+ */
 describe("Sapia Interview Chat Happy Path", () => {
     beforeEach(function() {
         // executes once prior all tests in it block

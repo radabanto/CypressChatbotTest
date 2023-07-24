@@ -2,6 +2,9 @@
 
 import ChatConsole from '../pages/ChatConsole';
 
+/**
+ * Sapia Interview Not happy :) Path Test
+ */
 describe("Sapia Interview Essay Length Test", () => {
     beforeEach(function() {
         // executes once prior all tests in it block
