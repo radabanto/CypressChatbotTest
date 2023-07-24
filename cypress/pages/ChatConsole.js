@@ -120,51 +120,6 @@ class ChatConsole {
         this.shouldHaveResponse(`Thank you for your feedback ${userData.name.split(' ')[0]}!`);
         this.shouldHaveResponse("Your interview is now finished and your answers have been submitted.");
     }
-
-    converseWithChatBot(userData, botScript) {
-        this.shouldHaveMultipleResponse(botScript.introduction);
-        this.shouldHaveResponse("Before we get started, can I get your first name and last name?");
-        this.respondToConsole(userData.name);
-        this.shouldHaveResponse("Thanks! And your email?");
-        this.respondToConsole(userData.email);
-        this.shouldHaveResponse("Great, and your phone number?");
-        this.respondToConsole(userData.phone);
-        this.shouldHaveResponse("Just one more thing, where do you live?");
-        var location = userData.suburb;
-        cy.get('[data-testid="desktop-editor"]').type(location);
-        this.respondFirstAddressMatchToConsole();
-        this.selectResponseFromConsole('Accept');
-        this.shouldHaveResponse(`Thanks ${userData.name.split(' ')[0]} 😀`);
-        this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
-        this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
-        this.respondToConsole(userData.freeText1);
-        this.shouldHaveResponse("Describe a time when you missed a deadline or personal commitment. How did that make you feel?");
-        this.respondToConsole(userData.freeText2);
-        this.shouldHaveResponse("We are always hungry to learn and do things differently. Give an example of a time you have had to deal with change, professionally or personally?");
-        this.respondToConsole(userData.freeText3);
-        this.shouldHaveResponse(`Thanks for sharing that with us, ${userData.name.split(' ')[0]}.`);
-        this.shouldHaveResponse("We believe that we are better together. Tell us about a time when you have rolled up your sleeves to help out your team or someone else?");
-        this.respondToConsole(userData.freeText1);
-        this.shouldHaveResponse("Have you ever dealt with someone difficult? How did you handle the situation? You can draw on your experiences at work, at school or any group activity");
-        this.respondToConsole(userData.freeText2);
-        this.shouldHaveMultipleResponse(botScript.interviewChallenge2);
-        this.shouldHaveResponse("Do you identify as Aboriginal or Torres Strait Islander?");
-        this.selectResponseFromConsole("No");
-        this.shouldHaveResponse("Is English your second language?");
-        this.selectResponseFromConsole("Yes");
-        this.shouldHaveResponse("Please select your age group");
-        this.selectResponseFromConsole("25-34");
-        this.shouldHaveResponse("Great! That’s all the questions we have. Click the button below to submit your responses, and keep an eye out in your inbox for your personality profile.");
-        this.selectResponseFromConsole("SUBMIT");
-        this.shouldHaveMultipleResponse(botScript.interviewConclusionPlusRating);
-        this.shouldHaveResponse("Rate your interview experience:");
-        this.selectResponseToSlider(userData.rating);
-        this.clickSubmitRating();
-        cy.waitForSapiaResponse("Your feedback matters to us, share a few comments about your application and first interview experience.", 5000);
-        this.respondToConsole(userData.freeText1);
-        this.shouldHaveResponse(`Thank you for your feedback ${userData.name.split(' ')[0]}!`);
-        this.shouldHaveResponse("Your interview is now finished and your answers have been submitted.");
-    }
 }
 
 export default ChatConsole;
