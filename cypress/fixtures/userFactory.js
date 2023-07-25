@@ -13,7 +13,7 @@ const createFakeUser = () => ({
     suburb:`${faker.address.county()}`,
     freeText1: `${faker.lorem.words(200)}`,
     freeText2: `${faker.lorem.words(60)}`,
-    freeText3: `${faker.lorem.words(70)}`,
+    freeText3: `${faker.lorem.words(150)}`,
     freeTextNG: `${faker.lorem.words(30)}`,
     rating: `${faker.random.number({ min: 1, max: 10, precision: 1})}`,
   });

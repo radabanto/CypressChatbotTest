@@ -203,6 +203,22 @@ class ChatConsole {
     }
 
     /**
+     * Test Script to setup first essay prompt to Sapia
+     * and check on passed essay data integrity
+     * @param {JSON} userData - json object containing input user data
+     * @param {JSON} botScript - json object containing a bot response script profile
+     * @method askEssayWithLongestExpectedResponse
+     */
+    askEssayWithLongestExpectedResponse(userData, botScript) {
+        this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
+        this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
+        cy.intercept('POST', '**next', (req) => {
+            expect(req.body).to.deep.nested.property('candidateResponse.answer.text', userData.freeText3);
+        });
+        this.respondToConsole(userData.freeText3);
+    }
+
+    /**
      * Perform a preset response to 
      * choice questions
      * TODO: Make prompts random

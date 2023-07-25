@@ -25,4 +25,12 @@ describe("Sapia Interview Essay Length Test", () => {
             sapiaChatConsole.askWordCountFailingApplicantOnEssayQuestions(userData, botScript);
         });
     });
+    it ("should be able to get the complete essay answer of applicant", () => {
+        const sapiaChatConsole = new ChatConsole();
+        sapiaChatConsole.visit();
+        cy.get('@testScript').then(botScript => {
+            sapiaChatConsole.askForApplicantUserInformation(userData, botScript);
+            sapiaChatConsole.askEssayWithLongestExpectedResponse(userData, botScript);
+        });
+    });
 });
