@@ -63,6 +63,17 @@ class ChatConsole {
     }
 
     /**
+     * method for verifying that the essay low end limit threshold prompt
+     * is shown after applicants response is received with below
+     * expected word count
+     * @method shouldPromptOnEssayLimitsOnLessThan
+     */
+    shouldPromptOnEssayLimitsOnLessThan() {
+        cy.get('[id="rcDialogTitle0"]').as('essayLimitPrompt').should('be.visible');
+        cy.get('@essayLimitPrompt').find('p').should('have.text', 'You’ve entered less than the recommended 50 words');
+    }
+
+    /**
      * perform a chat response in test
      * @param {string} message - intended response in test for verification
      * @method respondToConsole
@@ -188,8 +199,7 @@ class ChatConsole {
         this.respondToConsole(userData.freeTextNG);
         cy.wait(5000);
         this.shouldNotHaveResponse("Describe a time when you missed a deadline or personal commitment. How did that make you feel?");
-        //TODO: Assert word count failure prompt here. At the time of creation, no prompt shows in the app. Another way was used
-        //to determine whether the app proceeded with the prompts or not.
+        this.shouldPromptOnEssayLimitsOnLessThan();
     }
 
     /**
