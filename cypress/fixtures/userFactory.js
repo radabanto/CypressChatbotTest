@@ -3,6 +3,9 @@ import { times } from "lodash" ;
 
 /**
  * A utility method for creating a fake user
+ *  * + Outputs a json object that can be referred to by spec tests
+ *  * + Data is generated randomly based on faker v6
+ * TODO: Upgrade to a later version of faker
  * @returns an json object containing pertinent fake test user information
  * @method createFakeUser
  */
