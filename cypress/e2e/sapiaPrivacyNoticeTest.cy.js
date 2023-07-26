@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import ChatConsole from '../pages/ChatConsole';
+import TermsOfService from '../pages/TermsOfService';
 import { createUserData } from '../fixtures/userfactory';
 
 /**
@@ -12,10 +13,16 @@ describe("Sapia Privacy Notice Test", () => {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
     })
-    it("should be directed to Sapia Privacy Terms of Service", () => {
+    it("should be directed to Sapia Privacy Terms of Service from the chat console", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
         sapiaChatConsole.viewTermsOfService();
         cy.url().should('contain', '/terms-of-service');
     }); 
+
+    it ("should contain accessibility menu access", () => {
+        const termsPage = new TermsOfService();
+        termsPage.visit();
+        termsPage.getAccessibilityMenuButton().should('be.visible');
+    });
 });

@@ -1,10 +1,11 @@
 /// <reference types="cypress" />
 
 import ChatConsole from '../pages/ChatConsole';
+import PrivacyFAQs from '../pages/PrivacyFAQs';
 import { createUserData } from '../fixtures/userfactory';
 
 /**
- * Sapia Privacy Notice Test
+ * Sapia Privacy FAQs Test
  */
 describe("Sapia Privacy FAQs Test", () => {
     let userData = {};
@@ -18,4 +19,10 @@ describe("Sapia Privacy FAQs Test", () => {
         sapiaChatConsole.viewPrivacyFAQ();
         cy.url().should('contain', '/candidate-explainer/privacy-policy-candidates');
     }); 
+
+    it ("should contain accessibility menu access", () => {
+        const faqsPage = new PrivacyFAQs();
+        faqsPage.visit();
+        faqsPage.getAccessibilityMenuButton().should('be.visible');
+    });
 });
