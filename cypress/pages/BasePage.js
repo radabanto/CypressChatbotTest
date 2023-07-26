@@ -32,6 +32,7 @@ class BasePage {
     /**
      * get access to the on page
      * quick return to top feature
+     * @method getReturnToTopButton
      * @returns return to top button element selector
      */
     getReturnToTopButton() {
