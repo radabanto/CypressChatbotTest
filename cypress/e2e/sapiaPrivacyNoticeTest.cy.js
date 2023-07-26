@@ -15,7 +15,7 @@ describe("Sapia Privacy Notice Test", () => {
     it("should be directed to Sapia Privacy Terms of Service", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
-        // sapiaChatConsole.viewTermsOfService();
-        // cy.url().should('contain', '/terms-of-service');
+        sapiaChatConsole.viewTermsOfService();
+        cy.url().should('contain', '/terms-of-service');
     }); 
 });
