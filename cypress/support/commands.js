@@ -33,6 +33,8 @@ import { faker } from '@faker-js/faker';
  * + Modifies output file (if existing) after each call
  * + Data is generated randomly based on faker v6
  * TODO: Upgrade to a later version
+ * @deprecated As a result of refactor to data factory (using js in fixtures)
+ * but may still be used to generate fixture json file according to scenario name
  * @param {string} userScenarioName - name your test data category
  * @method generateTestUserData
  */
