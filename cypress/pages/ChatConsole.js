@@ -28,12 +28,21 @@ class ChatConsole {
     }
 
     /**
-     * perform viewing of terms of service from 
+     * perform viewing of Terms of Service from 
      * Sapia chat prompt
      * @method viewTermsOfService
      */
     viewTermsOfService() {
         cy.contains('Terms of Service', {timeout: 30000}).invoke('removeAttr','target').click();
+    }
+
+    /**
+     * perform viewing of Privacy FAQs from 
+     * Sapia chat prompt
+     * @method viewTermsOfService
+     */
+    viewPrivacyFAQ() {
+        cy.contains('Privacy FAQs', {timeout: 30000}).invoke('removeAttr','target').click();
     }
 
     /**
