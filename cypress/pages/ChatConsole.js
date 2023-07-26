@@ -33,7 +33,10 @@ class ChatConsole {
      * @method viewTermsOfService
      */
     viewTermsOfService() {
-        cy.contains('Terms of Service', {timeout: 30000}).invoke('removeAttr','target').click();
+        // Check target attribute to maintain tabbed behavior of link
+        // as designed to retain chat session while viewing utility pages
+        cy.contains('Terms of Service', {timeout: 30000}).as('termsOfServiceLink').should('have.attr', 'target');
+        cy.get('@termsOfServiceLink').invoke('removeAttr','target').click();
     }
 
     /**
@@ -42,7 +45,10 @@ class ChatConsole {
      * @method viewTermsOfService
      */
     viewPrivacyFAQ() {
-        cy.contains('Privacy FAQs', {timeout: 30000}).invoke('removeAttr','target').click();
+        // Check target attribute to maintain tabbed behavior of link
+        // as designed to retain chat session while viewing utility pages
+        cy.contains('Privacy FAQs', {timeout: 30000}).as('privacyFAQLink').should('have.attr', 'target');
+        cy.get('@privacyFAQLink').invoke('removeAttr','target').click();
     }
 
     /**
