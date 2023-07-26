@@ -211,11 +211,10 @@ class ChatConsole {
      */
     askEssayWithLongestExpectedResponse(userData, botScript) {
         this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
-        this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
-        cy.intercept('POST', '**next', (req) => {
-            expect(req.body).to.deep.nested.property('candidateResponse.answer.text', userData.freeText3);
-        });
+        this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?");
+        cy.interceptRequestFreeText(userData.freeText3).as('candidateResponseAPI');
         this.respondToConsole(userData.freeText3);
+        cy.wait('@candidateResponseAPI').its('response.statusCode').should('eq', 200);
     }
 
     /**
