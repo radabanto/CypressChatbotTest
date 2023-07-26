@@ -25,4 +25,12 @@ describe("Sapia Privacy Notice Test", () => {
         termsPage.visit();
         termsPage.getAccessibilityMenuButton().should('be.visible');
     });
+
+    it ("should have quick scroll to home button access upon scrolling through the page", () => {
+        const termsPage = new TermsOfService();
+        termsPage.visit();
+        cy.wait(5000);
+        cy.scrollTo('bottom');
+        termsPage.getReturnToTopButton().should('be.visible');
+    })
 });

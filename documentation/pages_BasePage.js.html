@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: pages/PrivacyFAQs.js</title>
+    <title>JSDoc: Source: pages/BasePage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: pages/PrivacyFAQs.js</h1>
+    <h1 class="page-title">Source: pages/BasePage.js</h1>
 
     
 
@@ -26,31 +26,48 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import BasePage from "./BasePage";
-
-/**
- * Privacy FAQs Page Object Model.
- * POM class for supporting tests within the
- * Privacy FAQs site page
- * @constructor PrivacyFAQs
- * @module PrivacyFAQs
- * @augments BasePage
+            <pre class="prettyprint source linenums"><code>/**
+ * Base Page Object Model.
+ * POM class for supporting 
+ * common page elements across multiple
+ * POMs
+ * @constructor BasePage
+ * @module BasePage
  */
-class PrivacyFAQs extends BasePage{
-    PrivacyFAQs() {
+class BasePage {
+    BasePage() {
         /* no implementation yet; placeholder */
     }
 
     /**
-     * visit the Privacy FAQs page via direct link
+     * common visit method for all related pages
      * @method visit
      */
     visit() {
-        cy.visit('https://sapia.ai/candidate-explainer/privacy-policy-candidates/');
+        cy.visit('/');
+    }
+  
+    /**
+     * get access to the on page
+     * accessibility menu button
+     * @method getAccessibilityMenuButton
+     * @returns accessibility menu element selector
+     */
+    getAccessibilityMenuButton() {
+        return cy.get('.ui_w');
+    }
+
+    /**
+     * get access to the on page
+     * quick return to top feature
+     * @returns return to top button element selector
+     */
+    getReturnToTopButton() {
+        return cy.get('.return-to-top').invoke('show');
     }
 }
 
-export default PrivacyFAQs;</code></pre>
+export default BasePage;</code></pre>
         </article>
     </section>
 

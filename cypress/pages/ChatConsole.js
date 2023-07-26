@@ -28,6 +28,30 @@ class ChatConsole {
     }
 
     /**
+     * perform viewing of main Candidate Explainer page from 
+     * Sapia chat prompt
+     * @method viewTermsOfService
+     */
+    viewCandidateExplainer() {
+        // Check target attribute to maintain tabbed behavior of link
+        // as designed to retain chat session while viewing utility pages
+        cy.contains('If you want to know more about how this chat works ', {timeout: 30000}).contains('click here').as('candidateExplainer').should('have.attr', 'target');
+        cy.get('@candidateExplainer').invoke('removeAttr','target').click();
+    }
+
+    /**
+     * perform viewing of main Candidate Explainer page from 
+     * Sapia chat prompt (2nd link instance)
+     * @method viewTermsOfService
+     */
+    viewCandidateExplainerFromSecondLink() {
+        // Check target attribute to maintain tabbed behavior of link
+        // as designed to retain chat session while viewing utility pages
+        cy.contains('If your candidates experience any issues or require support, they can access our candidate hub or chat to our support team by ', {timeout: 30000}).contains('clicking here').as('candidateExplainer').should('have.attr', 'target');
+        cy.get('@candidateExplainer').invoke('removeAttr','target').click();
+    }
+
+    /**
      * perform viewing of Terms of Service from 
      * Sapia chat prompt
      * @method viewTermsOfService

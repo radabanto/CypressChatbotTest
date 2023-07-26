@@ -1,11 +1,14 @@
+import BasePage from "./BasePage";
+
 /**
  * Terms Of Service Page Object Model.
  * POM class for supporting tests within the
  * Terms Of Service site page
  * @constructor TermsOfService
  * @module TermsOfService
+ * @augments BasePage
  */
-class TermsOfService {
+class TermsOfService extends BasePage{
     TermsOfService() {
         /* no implementation yet; placeholder */
     }
@@ -16,16 +19,6 @@ class TermsOfService {
      */
     visit() {
       cy.visit('https://sapia.ai/terms-of-service/');
-    }
-
-    /**
-     * get access to the on page
-     * accessibility menu button
-     * @method getAccessibilityMenuButton
-     * @returns accessibility menu element selector
-     */
-    getAccessibilityMenuButton() {
-        return cy.get('.ui_w');
     }
 }
 
