@@ -28,6 +28,15 @@ class ChatConsole {
     }
 
     /**
+     * perform viewing of terms of service from 
+     * Sapia chat prompt
+     * @method viewTermsOfService
+     */
+    viewTermsOfService() {
+        cy.contains('Terms of Service', {timeout: 30000}).invoke('removeAttr','target').click();
+    }
+
+    /**
      * assertion of the visibility of a particular chat
      * response from Sapia
      * @param {string} message - intended response in test for verification
