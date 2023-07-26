@@ -9,6 +9,6 @@ module.exports = defineConfig({
     },
     baseUrl:
       'https://fi.sandbox.sapia.ai/ap-southeast-2/cohorts/623a9ab72ad0b2561fecc7ae',
-    // "retries": 1,
+    "retries": 1,
   },
 })
