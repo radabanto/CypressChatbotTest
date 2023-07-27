@@ -14,10 +14,11 @@ const createFakeUser = () => ({
     email:`${"example+" + faker.random.number() + "@gmail.com"}`,
     phone:`${faker.phone.phoneNumber('+614########').slice(3).replace(' ', '')}`,
     suburb:`${faker.address.county()}`,
-    freeText1: `${faker.lorem.words(200)}`,
-    freeText2: `${faker.lorem.words(60)}`,
-    freeText3: `${faker.lorem.words(150)}`,
-    freeTextNG: `${faker.lorem.words(30)}`,
+    freeText1: `${faker.lorem.words(20)}.\n${faker.lorem.words(10)}.\n${faker.lorem.words(10)}.\n${faker.lorem.words(10)}.\n`,
+    freeText2: `${faker.lorem.words(30)}.\n${faker.lorem.words(60)}.\n${faker.lorem.words(30)}.\n${faker.lorem.words(30)}.`,
+    freeText3: `${faker.lorem.words(60)}`,
+    freeTextNGLow: `${faker.lorem.words(30)}`,
+    freeTextNGHigh: `${faker.lorem.words(200)}`,
     rating: `${faker.random.number({ min: 1, max: 10, precision: 1})}`,
   });
   

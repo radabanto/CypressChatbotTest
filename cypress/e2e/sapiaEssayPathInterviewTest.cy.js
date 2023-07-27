@@ -33,4 +33,12 @@ describe("Sapia Interview Essay Length Test", () => {
             sapiaChatConsole.askEssayWithLongestExpectedResponse(userData, botScript);
         });
     });
+    it ("should allow for edit of previous applicant response ", () => {
+        const sapiaChatConsole = new ChatConsole();
+        sapiaChatConsole.visit();
+        cy.get('@testScript').then(botScript => {
+            sapiaChatConsole.askForApplicantUserInformation(userData, botScript);
+            sapiaChatConsole.askApplicantOnFirstEssayQuestionThenTryEditFirstResponse(userData, botScript);
+        });
+    })
 });

@@ -69,3 +69,18 @@ Cypress.Commands.add('interceptRequestFreeText', (freeTextMessage) => {
     expect(req.body).to.deep.nested.property('candidateResponse.answer.text', freeTextMessage);
   });
 });
+
+/**
+ * Custom Command for intercepting free text request
+ * data for integrity. Intercept is done together
+ * with request assertion inside to check text to be sent over
+ * equals the message given in the ui.
+ * @param {string} freeTextMessage - message to be sent over by chat user
+ * @returns {object} API - api request/response details/information
+ * @method interceptRequestFreeText
+ */
+Cypress.Commands.add('interceptRequestEditFreeText', (freeTextMessage) => {
+  return cy.intercept('POST', '**edit-answer', (req) => {
+    expect(req.body).to.deep.nested.property('editAnswerInput.answer.text', freeTextMessage);
+  });
+});

@@ -131,6 +131,11 @@ class ChatConsole {
         this.send();
     }
 
+    clearThenRespondToConsole(message) {
+        cy.get('div[data-testid*="-editor"]').clear().type(message);
+        this.send();
+    }
+
     /**
      * perform an address selection on the first
      * address match; would work with any choice prompts
@@ -228,9 +233,9 @@ class ChatConsole {
         this.respondToConsole(userData.freeText3);
         this.shouldHaveResponse(`Thanks for sharing that with us, ${userData.name.split(' ')[0]}.`);
         this.shouldHaveResponse("We believe that we are better together. Tell us about a time when you have rolled up your sleeves to help out your team or someone else?");
-        this.respondToConsole(userData.freeText1);
-        this.shouldHaveResponse("Have you ever dealt with someone difficult? How did you handle the situation? You can draw on your experiences at work, at school or any group activity");
         this.respondToConsole(userData.freeText2);
+        this.shouldHaveResponse("Have you ever dealt with someone difficult? How did you handle the situation? You can draw on your experiences at work, at school or any group activity");
+        this.respondToConsole(userData.freeTextNGHigh);
     }
 
     /**
@@ -244,10 +249,30 @@ class ChatConsole {
     askWordCountFailingApplicantOnEssayQuestions(userData, botScript) {
         this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
         this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
-        this.respondToConsole(userData.freeTextNG);
+        this.respondToConsole(userData.freeTextNGLow);
         cy.wait(5000);
         this.shouldNotHaveResponse("Describe a time when you missed a deadline or personal commitment. How did that make you feel?");
         this.shouldPromptOnEssayLimitsOnLessThan();
+    }
+
+    /**
+     * Alternative test script for doing essay
+     * Implemented for when user enters a response for the test essay
+     * stage and decides to edit prior response as necessary.
+     * @param {JSON} userData - json object containing input user data
+     * @param {JSON} botScript - json object containing a bot response script profile
+     * @method askApplicantOnFirstEssayQuestionThenTryEditFirstResponse
+     */
+    askApplicantOnFirstEssayQuestionThenTryEditFirstResponse(userData, botScript) {
+        this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
+        this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
+        this.respondToConsole(userData.freeText1);
+        this.shouldHaveResponse("Describe a time when you missed a deadline or personal commitment. How did that make you feel?");
+        cy.get('.ellipsis__wrapper > .anticon').as('editButton').click();
+        cy.interceptRequestEditFreeText(userData.freeText3).as('candidateEditResponseAPI');
+        this.clearThenRespondToConsole(userData.freeText3);
+        //NOTE: testing this using userData.freeText1 or userData.freeText2 would cause the test to fail.
+        cy.wait('@candidateEditResponseAPI').its('response.statusCode').should('eq', 200);
     }
 
     /**
