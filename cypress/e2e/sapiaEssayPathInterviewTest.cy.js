@@ -16,7 +16,8 @@ describe("Sapia Interview Essay Length Test", () => {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
         cy.fixture('sapiaScriptInterview').as('testScript');
-    })
+    });
+
     it ("should give an error when applicant gives an answer below 50 words as prompted", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -25,6 +26,7 @@ describe("Sapia Interview Essay Length Test", () => {
             sapiaChatConsole.askWordCountFailingApplicantOnEssayQuestions(userData, botScript);
         });
     });
+
     it ("should be able to get the complete essay answer of applicant", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -33,6 +35,7 @@ describe("Sapia Interview Essay Length Test", () => {
             sapiaChatConsole.askEssayWithLongestExpectedResponse(userData, botScript);
         });
     });
+
     it ("should allow for edit of previous applicant response ", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -40,5 +43,5 @@ describe("Sapia Interview Essay Length Test", () => {
             sapiaChatConsole.askForApplicantUserInformation(userData, botScript);
             sapiaChatConsole.askApplicantOnFirstEssayQuestionThenTryEditFirstResponse(userData, botScript);
         });
-    })
+    });
 });

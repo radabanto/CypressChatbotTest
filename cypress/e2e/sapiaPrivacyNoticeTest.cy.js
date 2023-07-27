@@ -12,7 +12,8 @@ describe("Sapia Privacy Notice Test", () => {
     beforeEach(function() {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
-    })
+    });
+    
     it("should be directed to Sapia Privacy Terms of Service from the chat console", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -29,8 +30,7 @@ describe("Sapia Privacy Notice Test", () => {
     it ("should have quick scroll to home button access upon scrolling through the page", () => {
         const termsPage = new TermsOfService();
         termsPage.visit();
-        cy.wait(5000);
         cy.scrollTo('bottom');
         termsPage.getReturnToTopButton().should('be.visible');
-    })
+    });
 });

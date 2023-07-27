@@ -12,7 +12,8 @@ describe("Sapia Privacy FAQs Test", () => {
     beforeEach(function() {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
-    })
+    });
+    
     it ("should be directed to Sapia Privacy FAQs page", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -32,5 +33,5 @@ describe("Sapia Privacy FAQs Test", () => {
         cy.wait(5000);
         cy.scrollTo('bottom');
         faqsPage.getReturnToTopButton().should('be.visible');
-    })
+    });
 });

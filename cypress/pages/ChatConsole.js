@@ -82,7 +82,7 @@ class ChatConsole {
      * @method shouldHaveResponse
      */
     shouldHaveResponse(message) {
-        cy.contains('[data-testid="text-bubble"]', message, {timeout: 20000 }).should('be.visible');
+        cy.contains('[data-testid="text-bubble"]', message, {timeout: 10000}).should('be.visible');
     }
 
     /**
@@ -106,7 +106,7 @@ class ChatConsole {
     shouldHaveMultipleResponse(messages) {
         for(let index = 0; index<messages.length; index++)
         {
-            cy.contains('[data-testid="text-bubble"]', messages[index], {timeout: 20000 }).should('be.visible');
+            cy.contains('[data-testid="text-bubble"]', messages[index], {timeout: 10000}).should('be.visible');
         }
     }
 
@@ -250,7 +250,6 @@ class ChatConsole {
         this.shouldHaveMultipleResponse(botScript.interviewChallenge1);
         this.shouldHaveResponse("Customers are our number one priority, it’s all about making sure the customer has the best shopping experience. Tell us about a time you went out of your way to make a difference to someone that improved their day?")
         this.respondToConsole(userData.freeTextNGLow);
-        cy.wait(5000);
         this.shouldNotHaveResponse("Describe a time when you missed a deadline or personal commitment. How did that make you feel?");
         this.shouldPromptOnEssayLimitsOnLessThan();
     }

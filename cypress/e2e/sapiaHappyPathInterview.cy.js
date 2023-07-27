@@ -16,7 +16,7 @@ describe("Sapia Interview Chat Happy Path", () => {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
         cy.fixture('sapiaScriptInterview').as('testScript');
-    })
+    });
     it("should be able to complete a personalized applicant interview", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();

@@ -13,7 +13,8 @@ describe("Sapia Candidate Explainer Test", () => {
         userData = (createUserData(1))[0];
         cy.log(JSON.stringify(userData, null, '\t'));
         cy.fixture('sapiaScriptInterview').as('testScript');
-    })
+    });
+
     it ("should be directed to Sapia Candidate Explainer page", () => {
         const sapiaChatConsole = new ChatConsole();
         sapiaChatConsole.visit();
@@ -37,11 +38,10 @@ describe("Sapia Candidate Explainer Test", () => {
         explainerPage.getAccessibilityMenuButton().should('be.visible');
     });
 
-    it ("should have quick scroll to home button access upon scrolling through the page", () => {
+    it("should have quick scroll to home button access upon scrolling through the page", () => {
         const explainerPage = new CandidateExplainer();
         explainerPage.visit();
-        cy.wait(5000);
         cy.scrollTo('bottom');
         explainerPage.getReturnToTopButton().should('be.visible');
-    })
+    });
 });
