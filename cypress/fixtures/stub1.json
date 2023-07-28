@@ -1,0 +1,60 @@
+{
+    "nextResponse": {
+        -"id": "5f33c0c7-a2ef-4563-b9d3-4ec51375e84c",
+        "sender": "AGENT",
+        "data": {
+            "_id": "5f7d0d27b89cf6d0ce033a10",
+            "masterId": "fullName",
+            "types": [
+                "FTQ"
+            ],
+            "contents": [
+                {
+                    "value": "Before we get started, can I get your first name and last name?",
+                    "types": [
+                        "TEXT"
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "PII_TYPE",
+                    "value": "fullName"
+                }
+            ],
+            "usageWhitelist": [
+                "PII"
+            ]
+        }
+    },
+    "candidateResponse": {
+        -"id": "dfbe3692-8920-4419-81e8-a76864712798",
+        "sender": "CANDIDATE",
+        "data": {
+            -"_id": "64c36bc1c0168fdd07ec5777",
+            "question": {
+                "contents": [
+                    {
+                        "value": "If you’re good to go, fill in your details and press the Accept button. Use of our platform is subject to our [Terms of Service](https://me.predictivehire.com/terms-of-service?redirect={candidate.currentUrl}) and please check out our [Privacy FAQs](https://me.predictivehire.com/candidate-explainer-privacy-policy?redirect={candidate.currentUrl}) before you get started (if you are under 18, you may want to read these with a parent or guardian)",
+                        "types": [
+                            "TEXT"
+                        ]
+                    }
+                ],
+                "types": [
+                    "HINT"
+                ],
+                "_id": "8f885028d53beacba703d104"
+            }
+        },
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+        "timeTaken": 2249,
+        "time": "2023-07-28T07:18:25.599Z"
+    },
+    "assessmentStatus": "FI_ASSESSMENT_STARTED",
+    "numOfNormalAnswer": 0,
+    "fiToken": {
+        "name": "ph_fi_apse2_sandbox",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhc3Nlc3NtZW50SWQiOiI2NGMzNmJhZGMwMTY4ZmRkMDdlYzU3NWEiLCJjYW5kaWRhdGVJZCI6IjY0YzM2YmFkYzAxNjhmZGQwN2VjNTc1OSIsInJlZ2lvbiI6ImFwLXNvdXRoZWFzdC0yIiwiaWF0IjoxNjkwNTI4NzA1fQ.YeIzyGdOMsbrvR6gu0YyYwW9hHTO_Ygwgom2wkbXRoY"
+    }
+}
