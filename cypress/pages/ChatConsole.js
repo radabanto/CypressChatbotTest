@@ -189,21 +189,24 @@ class ChatConsole {
    */
   selectResponseToSlider(desiredSliderPos) {
     // Current slider default position is set arbitrarily to 7
-    // TODO: Add a way to check current slider position
-    var currSliderPos = 7;
-    var typeArrowDirection = "{rightarrow}";
-    if (desiredSliderPos < currSliderPos) {
-      typeArrowDirection = "{leftarrow}";
-    }
-    var moveStrokes = typeArrowDirection.repeat(
-      Math.abs(currSliderPos - desiredSliderPos)
-    );
-    if (desiredSliderPos != currSliderPos) {
-      cy.get(`[class='ant-slider-handle']`)
-        .as("sliderHandle")
-        .click()
-        .type(moveStrokes);
-    }
+    let currSliderPos = 0;
+    cy.get(`[class='ant-slider-handle']`)
+      .as("sliderHandle")
+      .invoke("attr", "aria-valuenow")
+      .then((value) => (currSliderPos = value));
+    cy.then(() => {
+      cy.log(currSliderPos);
+      var typeArrowDirection = "{rightarrow}";
+      if (desiredSliderPos < currSliderPos) {
+        typeArrowDirection = "{leftarrow}";
+      }
+      var moveStrokes = typeArrowDirection.repeat(
+        Math.abs(currSliderPos - desiredSliderPos)
+      );
+      if (desiredSliderPos != currSliderPos) {
+        cy.get("@sliderHandle").click().type(moveStrokes);
+      }
+    });
   }
 
   /**
